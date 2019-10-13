@@ -1,5 +1,5 @@
 {
-  "name": "mobx-wishlist",
+  "name": "mobx-state-tree-wishlist",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
