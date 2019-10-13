@@ -1,0 +1,26 @@
+{
+    "suggestions_m": [
+        {
+            "name": "Machine Gun Preacher",
+            "price": 7.35,
+            "image": "https://image.tmdb.org/t/p/w185_and_h278_bestv2/1gEP9ZC7jpSiuMWNfbOfXTWWF5n.jpg"
+        },
+        {
+            "name": "Avengers: Endgame",
+            "price": 17.29,
+            "image": "https://image.tmdb.org/t/p/w185_and_h278_bestv2/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
+        }
+    ],
+    "suggestions_f": [
+        {
+            "name": "The Notebook",
+            "price": 10.31,
+            "image": "https://image.tmdb.org/t/p/w185_and_h278_bestv2/gMfstesBXKdsHToAUXVPHujUDfb.jpg"
+        },
+        {
+            "name": "La La Land",
+            "price": 15.79,
+            "image": "https://image.tmdb.org/t/p/w185_and_h278_bestv2/ylXCdC106IKiarftHkcacasaAcb.jpg"
+        }
+    ]
+}

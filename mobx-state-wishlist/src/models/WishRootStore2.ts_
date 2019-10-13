@@ -1,0 +1,40 @@
+import { RootModel } from "./WishList"
+import { onSnapshot } from "mobx-state-tree";
+
+export const setupRootStore2 = () => {
+    const wishlist = localStorage.getItem("wishlist");
+    let rootTree: any = null;
+    if(wishlist) {
+      const json = JSON.parse(wishlist);
+      if (RootModel.is(json)) {
+        console.log('wishlist: ', json)
+        rootTree = RootModel.create(json); 
+      }
+    } else {
+      rootTree = RootModel.create({
+        wishList: {
+            items: [
+                {
+                  name: "LEGO Mindstorems EV3",
+                  price: 349.95,
+                  image:
+                    "https://www.justbricks.com.au/images/thumbnails/280/229/detailed/14/31313LEGOMINDSTORMSNXTEV3.png"
+                },
+                {
+                  name: "Miracles - C.S. Lewis",
+                  price: 12.91,
+                  image:
+                    "https://store.vision.org.au/5438-large_default/miracles-do-they-really-happen-c-s-lewis-paperback.jpg"
+                }
+              ]
+            }
+      });
+    }
+
+    onSnapshot(rootTree, snapshot => {
+      console.log('snapshot: ', snapshot); 
+      localStorage.setItem("wishlist", JSON.stringify(snapshot));
+    });
+
+    return { rootTree };
+}

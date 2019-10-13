@@ -139,3 +139,70 @@ function RecordStatus<T extends Constructor>(base: T) {
         delete: boolean = false;
     }
 }
+
+class Queue<T> {
+    private queue: T[] = [];
+
+    public Push(value: T): void {
+        this.queue.push(value);
+    }
+    public Pop(): T | undefined {
+        return this.queue.shift();
+    }
+}
+
+interface IStream {
+    ReadStream(): Int8Array;
+}
+class Data<T extends IStream> {
+    ReadStream(stream: T) {
+        let output = stream.ReadStream();
+        console.log(output.byteLength);
+    }
+}
+class WebStream implements IStream {
+    ReadStream(): Int8Array {
+        let array : Int8Array = new Int8Array(8);
+        for (let index : number = 0; index < array.length; index++){
+            array[index] = index + 3; 
+        }
+        return array;
+    }
+}
+class DiskStream implements IStream {
+    ReadStream(): Int8Array {
+        let array : Int8Array = new Int8Array(20); 
+        for (let index : number = 0; index < array.length; index++){
+            array[index] = index + 3;
+        }
+        return array;
+    }
+}
+const webStream = new Data<WebStream>();
+const diskStream = new Data<DiskStream>();
+webStream.ReadStream(new WebStream());
+diskStream.ReadStream(new DiskStream());
+
+enum Genre {
+    Rock,
+    CountryAndWestern,
+    Classical,
+    Pop,
+    HeavyMetal
+}
+class MusicCollection {
+    private readonly collection: Map<Genre, string[]>;
+    constructor() {
+        this.collection = new Map<Genre, string[]>();
+    }
+}
+
+function ExpensiveWebCall(time: number): Promise<void> {
+    return new Promise((resolve, reject) => setTimeout(resolve, time));
+}
+class MyWebService {
+    CallExpensiveWebOperation(): void {
+        ExpensiveWebCall(4000).then(() => console.log('Finish web service'))
+                            .catch(() => console.log('Expensive web call failure'));
+    }
+}
