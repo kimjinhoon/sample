@@ -206,3 +206,14 @@ class MyWebService {
                             .catch(() => console.log('Expensive web call failure'));
     }
 }
+
+function* f1() {
+    const data1 = yield;
+    console.log('data1:', data1);
+    const data2 = yield;
+    console.log('data2:', data2);
+}
+const gen = f1();
+gen.next();
+gen.next(10);
+gen.next(20);
