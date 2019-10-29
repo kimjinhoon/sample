@@ -1,7 +1,14 @@
 import React from 'react';
+import './ValidationSample.css';
 
 const ValidationSample: React.FC = () => {
-    type FormInfo = {password: string, clicked: boolean, validated: boolean, passRef: React.RefObject<HTMLInputElement>}
+    type FormInfo = {
+            password: string, 
+            clicked: boolean, 
+            validated: boolean, 
+            passRef: React.RefObject<HTMLInputElement>
+        };
+        
     const [form, setValues] = React.useState<FormInfo>({
         password: '',
         clicked: false,
