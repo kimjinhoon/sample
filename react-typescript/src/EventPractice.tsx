@@ -3,7 +3,7 @@ import React from 'react';
 const EventPractice: React.FC = () => {
     let [message, setMessage] = React.useState('');
  
-    let chagneHandler = (e: any) => {
+    let chagneHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMessage(e.target.value);
     }
 
@@ -12,7 +12,7 @@ const EventPractice: React.FC = () => {
         setMessage('');
     }
 
-    let keypressHandler = (e: any) => {
+    let keypressHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if(e.key === 'Enter') {
             clickHandler();
         }
