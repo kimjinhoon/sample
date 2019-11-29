@@ -18,7 +18,7 @@ interface MatchParams {
 
 export const Profile: React.FC<RouteComponentProps<MatchParams>> = ({match}) => {
     const { username } = match.params;
-    const profile: any = data[username];
+    //const profile: any = data[username];
     return (
         <div>
 
