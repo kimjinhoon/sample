@@ -118,3 +118,11 @@ pMap.age = false;
 
 type T2 = Person1['name'];
 const sT: T2 = '문자타입';
+
+
+type IsStringType<T> = T extends string ? 'yes' : 'no';
+type T3 = IsStringType<string>;
+type T4 = IsStringType<number>;
+const t3: T3 = 'yes';
+const t4: T4 =  'no';
+
