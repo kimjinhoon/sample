@@ -94,3 +94,27 @@ class Stack<D> {
     }
 }
 
+interface Person1 {
+    name: string;
+    age: number;
+}
+interface Person1Optional {
+    name?: string;
+    age?: number;
+}
+interface Person1ReadOnly {
+    readonly name: string;
+    readonly age: number;
+}
+type T1 = { [K in 'prop1' | 'prop2']: boolean };
+const t1: T1 = {prop1: true, prop2: true};
+t1.prop1 = false;
+t1.prop2 = false;
+
+type MakeBoolean<T> = { [P in keyof T]?: boolean};
+const pMap: MakeBoolean<Person1> = {};
+pMap.name = true;
+pMap.age = false;
+
+type T2 = Person1['name'];
+const sT: T2 = '문자타입';
