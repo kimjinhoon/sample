@@ -6,6 +6,7 @@ import { initClassInter } from './basicClassInterface';
 import { initAdType } from './advancedType2';
 import { initGeneric } from './basicGeneric';
 import { initPromise } from './tPromise';
+import { initTypesDef } from './tTypesDef';
 
 // initbasicType();
 // initbasicLoop();
@@ -14,6 +15,7 @@ import { initPromise } from './tPromise';
 // initClassInter();
 // initAdType();
 // initGeneric();
-initPromise();
+// initPromise();
+initTypesDef();
 
 console.log('---- End ---- ');0.

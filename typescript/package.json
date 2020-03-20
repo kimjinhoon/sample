@@ -8,7 +8,10 @@
   },
   "author": "",
   "devDependencies": {
+    "@types/underscore": "^1.9.4",
     "typescript": "^3.5.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "underscore": "^1.9.2"
+  }
 }
