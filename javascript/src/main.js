@@ -93,3 +93,74 @@ let a = 1, b = 2;
 console.log(a);
 console.log(b);
 
+console.log('--symbol1--')
+let firstName = Symbol('first name');
+let person1 = {};
+person1[firstName] = 'Hoon';
+console.log(person1[firstName]);
+
+console.log('--symbol2--')
+let person2 = {
+    [firstName]: 'Hoon'
+};
+Object.defineProperty(person2, firstName, {writable: false});
+let lastname = Symbol('last name');
+Object.defineProperties(person2, {
+    [lastname]: {
+        value: 'Jin',
+        writable: false
+    }
+});
+console.log(person2[firstName]);
+console.log(person2[lastname]);
+
+console.log('--symbol2--')
+let uid = Symbol.for('uid');
+let object2 = {};
+object2[uid] = '12345';
+console.log(object2[uid]);
+console.log(uid);
+
+console.log('--set1--')
+let set1 = new Set([1,2]);
+let processor = {
+    output(value) {
+        console.log(value);
+    },
+    process(dataset) {
+        dataset.forEach((value) => this.output(value));
+    }
+};
+processor.process(set1);
+
+console.log('--map1--')
+let key1 = {}, key2 = {},
+    map = new WeakMap([[key1, 'hello'], [key2, 9]]);
+console.log(map.has(key1));
+console.log(map.get(key1))
+console.log(map.has(key2));
+console.log(map.get(key2))
+
+console.log('--iter1--')
+function *createIterator() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+let iter1 = createIterator();
+console.log(iter1.next().value);
+console.log(iter1.next().value);
+console.log(iter1.next().value);
+console.log(iter1.next().value);
+
+console.log('--iter2--')
+function *createIterator2(items) {
+    for (let i = 0; items.length; i++) {
+        yield items[i];
+    }
+}
+let iter2 = createIterator2([1,2,3]);
+console.log(iter2.next());
+console.log(iter2.next());
+console.log(iter2.next());
+console.log(iter2.next());
