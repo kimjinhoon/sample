@@ -164,3 +164,11 @@ console.log(iter2.next());
 console.log(iter2.next());
 console.log(iter2.next());
 console.log(iter2.next());
+
+console.log('--iter3--')
+let values1 = [1, 2, 3];
+for (let num1 of values1) {
+    console.log(num1);
+}
+
+
