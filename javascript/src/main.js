@@ -171,4 +171,25 @@ for (let num1 of values1) {
     console.log(num1);
 }
 
+console.log('--iter4--')
+var msg2 = 'A 古 B';
+for (let m of msg2) {
+    console.log(m);
+}
 
+console.log('--iter5--')
+var arr1 = [...msg2];
+for (let ar of arr1) {
+    console.log(ar);
+}
+
+console.log('--promise1--')
+let p1 = new Promise((resolve, reject) => {
+    console.log('p1');
+    resolve(42);
+});
+p1.then(value => {
+    throw new Error('Boom!');
+}).catch(error => {
+    console.log(error.message);
+});
